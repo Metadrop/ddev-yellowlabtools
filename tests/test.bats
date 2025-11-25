@@ -25,7 +25,8 @@ teardown() {
   ddev add-on get ${DIR}
   ddev restart
   # Verify yellowlabtools command exists (shows usage when called without args)
-  ddev yellowlabtools 2>&1 | grep -q "yellowlabtools"
+  run bash -c "ddev yellowlabtools 2>&1"
+  [[ "$output" == *"yellowlabtools"* ]]
   # Verify yellowlabtools is installed in web container
   ddev exec which yellowlabtools
 }
