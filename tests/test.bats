@@ -26,17 +26,29 @@ teardown() {
   ddev restart
   # Verify yellowlabtools command exists (shows usage when called without args)
   run bash -c "ddev yellowlabtools 2>&1"
-  [[ "$output" == *"yellowlabtools"* ]]
-  # Verify yellowlabtools is installed in web container
-  ddev exec which yellowlabtools
+  [[ "$output" == *"URL is required"* ]]
+  # Verify yellowlabtools container is running
+  run ddev exec -s yellowlabtools which yellowlabtools
+  [ "$status" -eq 0 ]
 }
 
-@test "yellowlabtools is installed and working" {
+@test "yellowlabtools CLI is working" {
   set -eu -o pipefail
   cd ${TESTDIR}
   ddev add-on get ${DIR}
   ddev restart
-  # Verify yellowlabtools version command works
-  run ddev exec yellowlabtools --version
+  # Verify yellowlabtools can analyze a URL
+  run ddev exec -s yellowlabtools yellowlabtools --version
   [ "$status" -eq 0 ]
+}
+
+@test "yellowlabtools web server is running" {
+  set -eu -o pipefail
+  cd ${TESTDIR}
+  ddev add-on get ${DIR}
+  ddev restart
+  # Verify web UI is accessible on port 9034 (HTTPS)
+  run curl -sk https://${PROJNAME}.ddev.site:9034
+  [ "$status" -eq 0 ]
+  [[ "$output" == *"Yellow Lab Tools"* ]]
 }

@@ -2,9 +2,9 @@
 ![GitHub Release](https://img.shields.io/github/v/release/Metadrop/ddev-yellowlabtools-cli)
 
 
-# ddev-yellowlabtools-cli
+# ddev-yellowlabtools
 
-A DDEV add-on that provides [YellowLabTools](https://github.com/YellowLabTools/YellowLabTools) CLI for web performance analysis directly in your DDEV environment.
+A DDEV add-on that provides [YellowLabTools](https://github.com/YellowLabTools/YellowLabTools) for web performance analysis. Includes both CLI and Web UI.
 
 ## Installation
 
@@ -15,7 +15,7 @@ ddev restart
 
 ## Usage
 
-### Basic Usage
+### CLI
 
 Analyze any URL:
 
@@ -29,7 +29,17 @@ Analyze your local DDEV site:
 ddev yellowlabtools local
 ```
 
-### Options
+### Web UI
+
+Access the web interface at:
+
+```
+https://yellowlabtools.<projectname>.ddev.site:8384
+```
+
+The Web UI provides a visual interface to run analyses and view detailed reports.
+
+### CLI Options
 
 | Option | Description |
 |--------|-------------|
@@ -80,6 +90,17 @@ YellowLabTools is an open-source tool that analyzes web page performance and pro
 - DOM complexity
 - Bad practices detection
 - Performance scores and recommendations
+
+## Architecture
+
+This add-on creates a dedicated `yellowlabtools` container based on [ousamabenyounes/yellowlabtools](https://github.com/ousamabenyounes/docker-yellowlabtools) with:
+
+- Alpine Linux with Node.js 18
+- Chromium browser for headless rendering
+- YellowLabTools server (Web UI on port 8383)
+- YellowLabTools CLI
+
+The container runs alongside your DDEV services and shares the same network, allowing it to analyze both external URLs and your local DDEV site.
 
 ## Requirements
 

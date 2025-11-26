@@ -32,4 +32,4 @@ CMD="yellowlabtools $URL"
 [ -n "${FLAGS_AUTH_PASS:-}" ] && CMD="$CMD --auth-pass=$FLAGS_AUTH_PASS"
 [ -n "${FLAGS_REPORTER:-}" ] && CMD="$CMD --reporter=$FLAGS_REPORTER"
 
-eval $CMD
+ddev exec -s yellowlabtools $CMD

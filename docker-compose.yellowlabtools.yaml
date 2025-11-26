@@ -1,3 +1,25 @@
 #ddev-generated
-# This file is intentionally minimal as yellowlabtools runs in the web container
-# No additional services are required
+services:
+  yellowlabtools:
+    build:
+      context: yellowlabtools-build
+      dockerfile: Dockerfile
+    container_name: ddev-${DDEV_SITENAME}-yellowlabtools
+    expose:
+      - "8383"
+    environment:
+      - VIRTUAL_HOST=${DDEV_HOSTNAME}
+      - HTTP_EXPOSE=9033:8383
+      - HTTPS_EXPOSE=9034:8383
+      - CHROMIUM_USER_FLAGS=--no-sandbox --disable-setuid-sandbox --disable-dev-shm-usage
+    labels:
+      com.ddev.site-name: ${DDEV_SITENAME}
+      com.ddev.approot: $DDEV_APPROOT
+    networks:
+      default: null
+      ddev_default: null
+    volumes:
+      - ".:/mnt/ddev_config:ro"
+      - "../:/var/www/html:cached"
+      - ddev-global-cache:/mnt/ddev-global-cache
+
