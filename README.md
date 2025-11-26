@@ -34,7 +34,7 @@ ddev yellowlabtools local
 Access the web interface at:
 
 ```
-https://yellowlabtools.<projectname>.ddev.site:8384
+https://<projectname>.ddev.site:9034
 ```
 
 The Web UI provides a visual interface to run analyses and view detailed reports.
@@ -94,7 +94,7 @@ This add-on creates a dedicated `yellowlabtools` container based on [ousamabenyo
 
 - Alpine Linux with Node.js 18
 - Chromium browser for headless rendering
-- YellowLabTools server (Web UI on port 8383)
+- YellowLabTools server (Web UI exposed on port 9034)
 - YellowLabTools CLI
 
 The container runs alongside your DDEV services and shares the same network, allowing it to analyze both external URLs and your local DDEV site.
