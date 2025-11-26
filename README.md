@@ -23,7 +23,7 @@ Analyze any URL:
 ddev yellowlabtools https://example.com
 ```
 
-Analyze your local DDEV site:
+Analyze your local DDEV site (this will use the default ddev url):
 
 ```bash
 ddev yellowlabtools local
@@ -56,9 +56,6 @@ The Web UI provides a visual interface to run analyses and view detailed reports
 ```bash
 # Analyze local site with mobile device simulation
 ddev yellowlabtools local --device=phone
-
-# Analyze external URL and save screenshot
-ddev yellowlabtools https://google.com --screenshot=/var/www/html/screenshot.png
 
 # Analyze with HTTP basic authentication
 ddev yellowlabtools https://staging.example.com --auth-user=admin --auth-pass=secret
