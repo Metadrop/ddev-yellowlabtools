@@ -1,4 +1,4 @@
-name: yellowlabtools-cli
+name: yellowlabtools
 
 project_files:
   - docker-compose.yellowlabtools.yaml
