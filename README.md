@@ -1,5 +1,5 @@
-[![tests](https://github.com/Metadrop/ddev-yellowlabtools-cli/actions/workflows/tests.yml/badge.svg)](https://github.com/Metadrop/ddev-yellowlabtools-cli/actions/workflows/tests.yml) ![project is maintained](https://img.shields.io/maintenance/yes/2032.svg)
-![GitHub Release](https://img.shields.io/github/v/release/Metadrop/ddev-yellowlabtools-cli)
+[![tests](https://github.com/Metadrop/ddev-yellowlabtools/actions/workflows/tests.yml/badge.svg)](https://github.com/Metadrop/ddev-yellowlabtools/actions/workflows/tests.yml) ![project is maintained](https://img.shields.io/maintenance/yes/2032.svg)
+![GitHub Release](https://img.shields.io/github/v/release/Metadrop/ddev-yellowlabtools)
 
 
 # ddev-yellowlabtools
@@ -9,7 +9,7 @@ A DDEV add-on that provides [YellowLabTools](https://github.com/YellowLabTools/Y
 ## Installation
 
 ```bash
-ddev add-on get Metadrop/ddev-yellowlabtools-cli
+ddev add-on get Metadrop/ddev-yellowlabtools
 ddev restart
 ```
 
